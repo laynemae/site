@@ -1,0 +1,267 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.skip-link {
+    position: absolute; 
+    left: -1000px;
+    top: 25px;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    background-color: white;
+    position: absolute;
+    padding: 1em 1.5em;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+body {
+    background-color: #ecf0f1;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 16px;
+    padding-top: 330px;
+    transition: padding-top 0.5s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    /* background-color: #0a6552; */
+    background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+    text-align: center;
+    position: relative;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+    color: #fff;
+    line-height: 230px;
+    font-weight: 100;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 1px #333;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background-color: rgba(0,0,0,.1);
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    text-shadow: 1px 1px 1px #333;
+    text-decoration: none;
+    display: inline;
+}
+
+nav a {
+    color: #fff;
+    display: inline-block;
+    padding: 10px 15px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+nav a:hover {
+    box-shadow: 0 0 0 1px #fff;
+    text-decoration: none;
+    color: #fff;
+}
+
+h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+    font-weight: 100;
+    line-height: 2;
+    color: #2c3e50;
+}
+
+body.sticky-header header {
+    height: 60px;
+}
+
+body.sticky-header header h1 {
+    display: none;
+}
+
+body.sticky-header {
+    padding-top: 100px;
+}
+
+body.sticky-header .sticky-header nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+body.sticky-header .sticky-header nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.me {
+    display: block;
+    border-radius: 100%;
+    width: 135px;
+    height: 130px;
+    border: 0.2px solid #222;
+    margin-left: 50px;
+    /* filter: drop-shadow(1px 2px 1px #333); */
+}
+
+#aboutcontainer {
+    display: flex; 
+    align-items: flex-start;
+}
+
+p, h1, h2, h3, ul, li {
+    font-family: "Inter Tight", sans-serif;
+}
+
+p, h1, h2, #aboutdetails {
+    margin: 5%;
+}
+
+#aboutdetails {
+    margin-top: 0%;
+    padding-bottom: 5%;
+}
+
+#skills, #contact, #projects {
+    text-align: center;
+}
+
+.skillscontainer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.skillscontainer p {
+    font-size: medium;
+}
+
+.skillscontainer ul {
+    padding-left: 40%;
+    text-align: left;
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+.skillscontainer i, .languages p, .other p, .frameworks p {
+    text-align: center;
+    display: block;  
+    margin: 0 auto;
+}
+
+.contactcontainer {
+    display: grid; 
+    grid-template-columns: auto auto auto;
+    column-gap: 20%;
+    justify-items: center;
+    justify-content: center;
+    padding-bottom: 20%;
+}
+
+.contact-icon {
+    color: #333;
+}
+
+.projectscontainer {
+    padding-top: 2%;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-content: center;
+    padding-bottom: 5%;
+    column-gap: 5%;
+}
+
+.projectimg { 
+    width: 100%;
+    height: 80%;
+}
+
+.overlaycontainer {
+    position: relative;
+}
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #101010;
+}
+  
+.overlaycontainer:hover .overlay {
+    opacity: 80%;
+}
+  
+.text {
+    font-family: "Inter Tight", sans-serif;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .videoclass {
+        display: none; 
+    }
+}
+
+@media screen and (min-width:550px) { 
+    .skillscontainer {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        column-gap: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        overflow: auto;
+    }
+    
+    .skillscontainer ul {
+        text-align: left;
+        list-style-position: inside;
+        list-style-type: circle;
+    }
+    
+    .skillscontainer i, .languages p, .other p, .frameworks p {
+        text-align: center;
+        display: block;  
+        margin: 0 auto;
+    }
+}
