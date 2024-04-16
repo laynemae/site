@@ -154,6 +154,8 @@ p, h1, h2, #aboutdetails {
     grid-template-rows: auto auto auto;
     padding-left: 10%;
     padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 10%;
 }
 
 .skillscontainer p {
@@ -180,6 +182,7 @@ p, h1, h2, #aboutdetails {
     justify-items: center;
     justify-content: center;
     padding-bottom: 20%;
+    padding-top: 2%;
 }
 
 .contact-icon {
@@ -226,7 +229,7 @@ p, h1, h2, #aboutdetails {
 .text {
     font-family: "Inter Tight", sans-serif;
     color: white;
-    font-size: 20px;
+    font-size: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -251,6 +254,7 @@ p, h1, h2, #aboutdetails {
         padding-left: 10%;
         padding-right: 10%;
         overflow: auto;
+        padding-bottom: 10%;
     }
     
     .skillscontainer ul {
