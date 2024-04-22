@@ -1,3 +1,60 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.toggle-checkbox {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    bottom: 5%; 
+    right: 5%; 
+}
+  
+.toggle-label {
+    z-index: 1500;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 1px #333;
+    --size: 4rem;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    width: var(--size);
+    height: var(--size);
+    box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
+    border-radius: 999px;
+    color: hsl(192, 50%, 71%);
+    transition: all 500ms;
+    position: fixed; 
+    bottom: 5%; 
+    right: 5%; 
+}
+  
+  .toggle-checkbox:checked + .toggle-label {
+    --ray-size: calc(var(--size) * -0.4);
+    --offset-orthogonal: calc(var(--size) * 0.65);
+    --offset-diagonal: calc(var(--size) * 0.45);
+    color: hsl(45, 100%, 54%);
+    box-shadow: 
+      inset 0 0 0 var(--size),
+      calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
+      var(--offset-orthogonal) 0 0 var(--ray-size),
+      0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
+      0 var(--offset-orthogonal) 0 var(--ray-size),
+      calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0 var(--ray-size),
+      var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
+      calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
+      var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
+  }
+  
 html {
     scroll-behavior: smooth;
 }
@@ -23,7 +80,7 @@ body {
     font-family: helvetica, arial, sans-serif;
     font-size: 16px;
     padding-top: 330px;
-    transition: padding-top 0.5s ease;
+    transition: 0.25s ease;
 }
 
 * {
@@ -33,21 +90,23 @@ body {
 header {
     width: 100%;
     height: 300px;
-    /* background-color: #0a6552; */
     background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     text-align: center;
     position: relative;
     position: fixed;
     top: 0;
     overflow: hidden;
     transition: all 0.5s ease;
+    z-index: 2000;
 }
 
 header h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 5em;
+    font-size: 4em;
     color: #fff;
-    line-height: 230px;
+    line-height: 240px;
     font-weight: 100;
     transition: all 0.3s ease;
     text-shadow: 1px 1px 1px #333;
@@ -127,11 +186,6 @@ body.sticky-header .sticky-header nav li {
     /* filter: drop-shadow(1px 2px 1px #333); */
 }
 
-#aboutcontainer {
-    display: flex; 
-    align-items: flex-start;
-}
-
 p, h1, h2, h3, ul, li {
     font-family: "Inter Tight", sans-serif;
 }
@@ -142,10 +196,14 @@ p, h1, h2, #aboutdetails {
 
 #aboutdetails {
     margin-top: 0%;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
 }
 
-#skills, #contact, #projects {
+#projects {
+    padding-bottom: 2%;
+}
+
+#skills, #contact, #projects, #about {
     text-align: center;
 }
 
@@ -181,7 +239,7 @@ p, h1, h2, #aboutdetails {
     column-gap: 20%;
     justify-items: center;
     justify-content: center;
-    padding-bottom: 20%;
+    padding-bottom: 15%;
     padding-top: 2%;
 }
 
@@ -190,7 +248,8 @@ p, h1, h2, #aboutdetails {
 }
 
 .projectscontainer {
-    padding-top: 2%;
+    z-index: 10;
+    position: relative;
     display: grid;
     grid-template-columns: auto auto;
     padding-left: 5%;
@@ -201,6 +260,8 @@ p, h1, h2, #aboutdetails {
 }
 
 .projectimg { 
+    position: relative;
+    z-index: 0;
     width: 100%;
     height: 80%;
 }
@@ -240,6 +301,20 @@ p, h1, h2, #aboutdetails {
     text-shadow: 1px 1px 1px #000000;
 }
 
+.dark-mode {
+    transition: .3s ease; 
+    background-color: #000000;
+    .text, .contact-icon {
+        color: white;
+    }
+    header {
+        background-image: linear-gradient(135deg, #15234e 10%, #4a306c 100%);
+    }
+    p, h1, h2, h3, ul, li {
+        color: white;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .videoclass {
         display: none; 
@@ -253,19 +328,140 @@ p, h1, h2, #aboutdetails {
         column-gap: 5%;
         padding-left: 10%;
         padding-right: 10%;
-        overflow: auto;
+        overflow: hidden;
         padding-bottom: 10%;
+        justify-content: center;
     }
     
     .skillscontainer ul {
         text-align: left;
         list-style-position: inside;
         list-style-type: circle;
+        padding-left: 28%;
     }
     
     .skillscontainer i, .languages p, .other p, .frameworks p {
         text-align: center;
         display: block;  
         margin: 0 auto;
+    }
+    
+    .toggle-label {
+        --size: 4.5rem;
+    }
+
+    header h1 {
+        font-size: 5em;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    ul, li {
+        font-size: 18px;
+    }
+
+    .skillscontainer p {
+        font-size: 20px;
+    }
+
+    .overlay .text {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width:1000px) { 
+    header {
+        height: 350px;
+    }
+
+    header h1 {
+        font-size: 6.5em;
+    }
+
+    .toggle-label {
+        --size: 5.5rem;
+    }
+
+    #aboutcontainer {
+        padding-top: 5%;
+    }
+
+    .overlay .text {
+        font-size: 8px;
+    }
+
+    #bigcontainer {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+    }
+
+    #aboutcontainer, #container2 {
+        padding-top: 5%;
+    }
+
+    #about {
+        text-align: left;
+    }
+
+    .projectscontainer {
+        grid-template-columns: auto auto auto auto;
+        column-gap: 2%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .projectimg { 
+        width: 100%;
+        height: 80%;
+    }
+
+    .overlay {
+        height: 80%;
+        width: 100%;
+    }
+
+    .contactcontainer .contact-icon {
+        font-size: 9em !important;
+    }
+
+    nav li {
+        font-size: 20px;
+    }
+
+    li {
+        font-size: 15px;
+    }
+
+    .skillscontainer p {
+        font-size: 15px;
+    }
+
+    .overlay .text {
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width:1200px) { 
+    .overlay .text {
+        font-size: 14px;
+    }
+
+    li {
+        font-size: 18px;
+    }
+
+
+    p {
+        font-size: 18px;
+    }
+
+    .skillscontainer p {
+        font-size: 19px;
     }
 }

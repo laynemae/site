@@ -23,109 +23,127 @@
     <header> 
         <div class="sticky-header">
             <nav>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact Me</a></li>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
             </nav>
         </div>
+        <input type="checkbox" id="toggle" class="toggle-checkbox" onchange="toggleDarkMode()">
+        <label for="toggle" class="toggle-label" aria-label="Dark Mode Toggle"></label>
         <h1 id="name"> Layne Stephens </h1>
     </header>
     <main id="main-content">
-        <div id="aboutcontainer"> 
-            <h2 id="about"> About Me </h2> 
-            <!--  <img class ='me' src="images/me.jpg" width = "400" alt="A picture of me!"> -->
-        </div>
-        <div id="aboutdetails"> 
-            <h3> Hi there! </h3>
-            <p> I am currently a Computer Science student with a minor in UI/UX design at the University of Michigan. 
-                Throughout my time as a student, I have explored a variety of technological concepts
-                such as computer hardware, artificial intelligence, software engineering, computer security, and more! 
-                I continue to hone my skills as a software developer as well as expand my skillset inside 
-                and outside of the classrom. 
-            </p>
-            <p> I have many interests outside of the realm of computer science as well! 
-                I'm a huge bookworm and love to envelop myself in fantasy worlds. Recently,
-                I have also taken up crocheting and dabble in making my own clothes and accessories. 
-                These activities not only allow me to unwind, but also inspire my creative projects. 
-            </p>
-        </div>
-        <h2 id="skills"> Skills </h2> 
-        <div class="skillscontainer">
-            <div class="languages">
-                <i class="contact-icon fa fa-gear fa-3x"></i>
-                <p> Programming Languages </p>
-                <ul>
-                    <li> Python </li>
-                    <li> C++ </li>
-                    <li> C </li>
-                    <li> JavaScript </li>
-                    <li> R </li>
-                    <li> ARM Assembly </li>
-                    <li> SQL </li>
-                </ul>
+        <div id="bigcontainer">
+            <div id="aboutcontainer"> 
+                <h2 id="about"> About Me </h2> 
+                <!--  <img class ='me' src="images/me.jpg" width = "400" alt="A picture of me!"> -->
+            <div id="aboutdetails"> 
+                <h3> Hi there! </h3>
+                <p> I am currently a Computer Science student with a minor in UI/UX design at the University of Michigan. 
+                    Throughout my time as a student, I have explored a variety of technological concepts
+                    such as computer hardware, artificial intelligence, software engineering, computer security, and more! 
+                    I continue to hone my skills as a software developer as well as expand my skillset inside 
+                    and outside of the classroom. 
+                </p>
+                <p> I have many interests outside of the realm of computer science as well! 
+                    I'm a huge bookworm and love to envelop myself in fantasy worlds. Recently,
+                    I have also taken up crocheting and dabble in making my own clothes and accessories. 
+                    These activities not only allow me to unwind, but also inspire my creative projects. 
+                </p>
             </div>
-            <div class="frameworks"> 
-                <i class="contact-icon fa fa-window-maximize fa-3x"></i>
-                <p> Web Languages/Frameworks </p>
-                <ul> 
-                    <li> HTML </li>
-                    <li> CSS </li>
-                    <li> PHP </li>
-                </ul>
             </div>
-            <div class="other"> 
-                <i class="contact-icon fa fa-cloud fa-3x"></i>
-                <p> Other </p>
-                <ul> 
-                    <li> GitHub </li>
-                    <li> Figma </li>
-                    <li> LaTeX </li>
-                    <li> YAML </li>
-                </ul>
-            </div>
-        </div>
-        <h2 id="projects"> Projects </h2> 
-        <div class="projectscontainer">
-            <div class="overlaycontainer">
-                <img class ='projectimg' src="images/euchre.jpg" width = "400" alt="A hand of playing cards">
-                <div class="overlay">
-                    <div class="text">Replicated the card game Euchre in C++, incorporating features 
-                        such as user-interaction and AI opponents for the user to play against.  
-                    </div> 
+            <div id="container2">
+            <h2 id="skills"> Skills </h2> 
+            <div class="skillscontainer">
+                <div class="languages">
+                    <i class="contact-icon fa fa-gear fa-3x"></i>
+                    <p> Programming Languages </p>
+                    <ul>
+                        <li> Python </li>
+                        <li> C++ </li>
+                        <li> C </li>
+                        <li> JavaScript </li>
+                        <li> R </li>
+                        <li> ARM Assembly </li>
+                        <li> SQL </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="overlaycontainer">
-                <img class ='projectimg' src="images/kolibri.jpg" width = "400" alt="The logo of Kolibri, an open source learning platform">
-                <div class="overlay">
-                    <div class="text">Made meaningful contributions to the open-source learning platform Kolibri by addressing 
-                        an ongoing issue in collaboration with active contributors. 
-                    </div> 
+                <div class="frameworks"> 
+                    <i class="contact-icon fa fa-window-maximize fa-3x"></i>
+                    <p> Web Languages/Frameworks </p>
+                    <ul> 
+                        <li> HTML </li>
+                        <li> CSS </li>
+                        <li> PHP </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="overlaycontainer">
-                <img class ='projectimg' src="images/sqldatabase.jpg" width = "400" alt="Backend code for an SQL database">
-                <div class="overlay">
-                    <div class="text">Hello World</div> 
-                </div>
-            </div>
-            <div class="overlaycontainer">
-                <img class ='projectimg' src="images/autopsy.jpg" width = "400" alt="The opening page for Autopsy, a digital forensics platform">
-                <div class="overlay">
-                    <div class="text">Hello World</div> 
+                <div class="other"> 
+                    <i class="contact-icon fa fa-cloud fa-3x"></i>
+                    <p> Other </p>
+                    <ul> 
+                        <li> GitHub </li>
+                        <li> Figma </li>
+                        <li> LaTeX </li>
+                        <li> YAML </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <h2 id="contact"> Contact Me </h2> 
-        <div class="contactcontainer">
-            <a href="mailto:lmsteph@umich.edu" target="blank">
-            <i class="contact-icon fa fa-envelope fa-5x"></i>
+    </div>
+        <div id="container3">
+            <h2 id="projects"> Projects </h2> 
+            <div class="projectscontainer">
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/euchre.jpg" width = "400" alt="A hand of playing cards">
+                    <div class="overlay">
+                        <div class="text">Replicated the card game Euchre in C++, incorporating features 
+                            such as user-interaction and AI opponents for the user to play against.  
+                        </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/kolibri.jpg" width = "400" alt="The logo of Kolibri, an open source learning platform">
+                    <div class="overlay">
+                        <div class="text">Made meaningful contributions to the open-source learning platform Kolibri by addressing 
+                            an ongoing issue in collaboration with active contributors. 
+                        </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/sqldatabase.jpg" width = "400" alt="Backend code for an SQL database">
+                    <div class="overlay">
+                        <div class="text">Implemented a rudimentary form of a relational database in C++ with hash maps that 
+                            supports table joins, indexes, and various queries through an interactive shell.
+                            </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/autopsy.jpg" width = "400" alt="The opening page for Autopsy, a digital forensics platform">
+                    <div class="overlay">
+                        <div class="text">Conducted a forensic analysis of a simulated case through live and dead analysis
+                            to determine the culpability of a suspect. </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container4">
+            <h2 id="contact"> Contact Me </h2> 
+            <div class="contactcontainer">
+                <a href="mailto:lmsteph@umich.edu" target="blank" aria-label="Email Layne">
+                <i class="contact-icon fa fa-envelope fa-5x"></i>
+                </a>
 
-            <a href="https://github.com/laynemae" target="blank">
-            <i class="contact-icon fa fa-github fa-5x"></i>
+                <a href="https://github.com/laynemae" target="blank" aria-label="See My GitHub">
+                <i class="contact-icon fa fa-github fa-5x"></i>
+                </a>
 
-            <a href="https://ca.linkedin.com/in/layne-stephens" target="blank">
-            <i class="contact-icon fa fa-linkedin fa-5x"></i>
+                <a href="https://ca.linkedin.com/in/layne-stephens" target="blank" aria-label="See My LinkedIn">
+                <i class="contact-icon fa fa-linkedin fa-5x"></i>
+                </a>
+            </div>
         </div>
     </main>
     <script src="js/style.js"></script>

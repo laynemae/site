@@ -8,3 +8,8 @@ $(function(){
     }
   });
 });
+
+function toggleDarkMode() {
+  let isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+} 
