@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+    <div class="wrapper"></div>
     <a href="#main-content" class="skip-link" tabindex="0">Skip to Content</a>
     <header> 
         <div class="sticky-header">
@@ -43,9 +44,9 @@
                 <!--  <img class ='me' src="images/me.jpg" width = "400" alt="A picture of me!"> -->
             <div id="aboutdetails"> 
                 <h3> Hi there! </h3>
-                <p> I am currently a Computer Science student with a minor in UI/UX design at the University of Michigan. 
-                    Throughout my time as a student, I have explored a variety of technological concepts
-                    such as computer hardware, artificial intelligence, software engineering, computer security, and more! 
+                <p> I am a recent graduate from the University of Michigan with a bachelor's degree in Computer Science and 
+                    a minor in UI/UX design. Throughout my time as a student, I have explored a variety of technological concepts
+                    such as computer hardware, artificial intelligence, UI/UX design, software engineering, computer security, and more! 
                     I continue to hone my skills as a software developer as well as expand my skillset inside 
                     and outside of the classroom. 
                 </p>
@@ -54,6 +55,11 @@
                     I have also taken up crocheting and dabble in making my own clothes and accessories. 
                     These activities not only allow me to unwind, but also inspire my creative projects. 
                 </p>
+            </div>
+            </div>
+            <div id="pic">
+                <img class = "lightpic" src="images/me.jpg" alt="Photo of me">
+                <img class = "darkpic" src="images/me.jpg" alt="Photo of me">
             </div>
             </div>
             <div id="container2">
@@ -68,7 +74,6 @@
                         <li> C </li>
                         <li> JavaScript </li>
                         <li> R </li>
-                        <li> ARM Assembly </li>
                         <li> SQL </li>
                     </ul>
                 </div>
@@ -79,6 +84,8 @@
                         <li> HTML </li>
                         <li> CSS </li>
                         <li> PHP </li>
+                        <li> React </li>
+                        <li> Flask </li>
                     </ul>
                 </div>
                 <div class="other"> 
@@ -87,21 +94,29 @@
                     <ul> 
                         <li> GitHub </li>
                         <li> Figma </li>
-                        <li> LaTeX </li>
-                        <li> YAML </li>
+                        <li> Wordpress </li>
+                        <li> Adobe Creative Cloud Suite </li>
+                        <li> Microsoft Office Suite</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
         <div id="container3">
             <h2 id="projects"> Projects </h2> 
             <div class="projectscontainer">
                 <div class="overlaycontainer">
-                    <img class ='projectimg' src="images/euchre.jpg" width = "400" alt="A hand of playing cards">
+                    <img class ='projectimg' src="images/calliicon.jpg" width = "400" alt="The Instagram social media app logo">
                     <div class="overlay">
-                        <div class="text">Replicated the card game Euchre in C++, incorporating features 
-                            such as user-interaction and AI opponents for the user to play against.  
+                        <div class="text">Developed a Chrome extension with a team of colleagues that leverages a chatbot interface 
+                            and uses AI to automate scheduling and time management.
+                        </div>
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/instagram.jpg" width = "400" alt="The Instagram social media app logo">
+                    <div class="overlay">
+                        <div class="text">Created a full-featured Instagram clone through the implementation
+                            of server-side dynamic and client-side dynamic pages to support interactive features
                         </div> 
                     </div>
                 </div>
@@ -109,7 +124,30 @@
                     <img class ='projectimg' src="images/kolibri.jpg" width = "400" alt="The logo of Kolibri, an open source learning platform">
                     <div class="overlay">
                         <div class="text">Made meaningful contributions to the open-source learning platform Kolibri by addressing 
-                            an ongoing issue in collaboration with active contributors. 
+                            an ongoing key-error issue in collaboration with active contributors. 
+                        </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/autopsy.jpg" width = "400" alt="The opening page for Autopsy, a digital forensics platform">
+                    <div class="overlay">
+                        <div class="text">Conducted a forensic analysis of a simulated case through live and dead analysis
+                            to determine the culpability of a suspect. </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/piazza.jpg" width = "400" alt="The Instagram social media app logo">
+                    <div class="overlay">
+                        <div class="text">Used natural language processing and machine learning techniques to determine the subject of 
+                            a post on a Q&A website. 
+                        </div> 
+                    </div>
+                </div>
+                <div class="overlaycontainer">
+                    <img class ='projectimg' src="images/euchre.jpg" width = "400" alt="A hand of playing cards">
+                    <div class="overlay">
+                        <div class="text">Replicated the card game Euchre in C++, incorporating features 
+                            such as user-interaction and AI opponents for the user to play against.  
                         </div> 
                     </div>
                 </div>
@@ -122,10 +160,11 @@
                     </div>
                 </div>
                 <div class="overlaycontainer">
-                    <img class ='projectimg' src="images/autopsy.jpg" width = "400" alt="The opening page for Autopsy, a digital forensics platform">
+                    <img class ='projectimg' src="images/shoppingcart.jpg" width = "400" alt="The Instagram social media app logo">
                     <div class="overlay">
-                        <div class="text">Conducted a forensic analysis of a simulated case through live and dead analysis
-                            to determine the culpability of a suspect. </div> 
+                        <div class="text">Used Oracle’s development platform APEX along with SQL to develop an online shopping application 
+                            that can form a cart, add items to the cart, and proceed to checkout. 
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -150,3 +189,4 @@
     <script src="js/style.js"></script>
 </body>
 </html>
+

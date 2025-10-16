@@ -10,6 +10,16 @@ $(function(){
 });
 
 function toggleDarkMode() {
-  let isDark = document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.toggle('dark-mode');
   localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-} 
+}
+
+//document.addEventListener('DOMContentLoaded', () => {
+//  const savedPreference = localStorage.getItem('darkMode');
+//  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+//  if (savedPreference === 'enabled' || (!savedPreference && systemPrefersDark)) {
+//    document.body.classList.add('dark-mode');
+//  } else {
+//    document.body.classList.remove('dark-mode');
+//  }
+//});
