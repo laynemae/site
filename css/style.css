@@ -123,12 +123,20 @@ nav {
 
 nav ul {
     list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
 }
 
 nav li {
     text-shadow: 1px 1px 1px #333;
     text-decoration: none;
     display: inline;
+    position: relative;
+    padding-inline: 1em;
+    padding-block: 0.5em;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 nav a {
@@ -140,9 +148,36 @@ nav a {
 }
 
 nav a:hover {
-    box-shadow: 0 0 0 1px #fff;
     text-decoration: none;
     color: #fff;
+}
+
+nav li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 0.5px;
+  scale: 0 1;
+  transition: scale 250ms ease, translate 250ms ease;
+}
+
+nav li:hover::after {
+  scale: 1 1;
+}
+
+@supports (selector(:has(*))) {
+  nav li:hover + li::after {
+    translate: -100% 0;
+  }
+
+  nav li:has(+ li:hover)::after {
+    translate: 100% 0;
+  }
 }
 
 h2 {
@@ -203,6 +238,20 @@ p, h1, h2, #aboutdetails {
     padding-bottom: 2%;
 }
 
+#pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    width: auto;
+    margin-bottom: 13%;
+}
+
+#pic img {
+    width: 50%;
+}
+
 #skills, #contact, #projects, #about {
     text-align: center;
 }
@@ -245,13 +294,18 @@ p, h1, h2, #aboutdetails {
 
 .contact-icon {
     color: #333;
+    transition: transform .2s ease-in-out;
+}
+
+.contact-icon:hover {
+    transform: scale(1.5);
 }
 
 .projectscontainer {
+    grid-template-columns: 45% 45%;
     z-index: 10;
     position: relative;
     display: grid;
-    grid-template-columns: auto auto;
     padding-left: 5%;
     padding-right: 5%;
     justify-content: center;
@@ -290,7 +344,8 @@ p, h1, h2, #aboutdetails {
 .text {
     font-family: "Inter Tight", sans-serif;
     color: white;
-    font-size: 10px;
+    font-size: clamp(0.8rem, 1.8vw, 2rem);
+    max-width: 90%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -299,6 +354,22 @@ p, h1, h2, #aboutdetails {
     transform: translate(-50%, -50%);
     text-align: center;
     text-shadow: 1px 1px 1px #000000;
+}
+
+.lightpic, .darkpic { 
+    width: 75%;
+    border-radius: 5%;
+}
+
+.lightpic {
+    transition: .3s ease; 
+    display: block;
+    box-shadow: 18px 20px 0px 5px #ffa1b5;
+}
+
+.darkpic {
+    display: none;
+    box-shadow: 18px 20px 0px 5px #484990;
 }
 
 .dark-mode {
@@ -313,11 +384,12 @@ p, h1, h2, #aboutdetails {
     p, h1, h2, h3, ul, li {
         color: white;
     }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .videoclass {
-        display: none; 
+    .darkpic {
+        transition: .3s ease;  
+        display: block;
+    }
+    .lightpic {
+        display: none;
     }
 }
 
@@ -360,14 +432,11 @@ p, h1, h2, #aboutdetails {
 
     ul, li {
         font-size: 18px;
+        align-items: center;
     }
 
     .skillscontainer p {
         font-size: 20px;
-    }
-
-    .overlay .text {
-        font-size: 15px;
     }
 }
 
@@ -388,17 +457,16 @@ p, h1, h2, #aboutdetails {
         padding-top: 5%;
     }
 
-    .overlay .text {
-        font-size: 8px;
-    }
-
     #bigcontainer {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 65% 35%;
         grid-template-rows: auto;
         margin-left: 3%;
         margin-right: 3%;
-        margin-top: 2%;
+        margin-top: 5%;
+        align-items: center;
+        justify-content: center;
+        justify-items: self-end;
     }
 
     #aboutcontainer, #container2 {
@@ -408,12 +476,20 @@ p, h1, h2, #aboutdetails {
     #about {
         text-align: left;
     }
+    
+    #pic {
+        display: block;
+        align-content: space-evenly;
+        align-self: center;
+        align-items: center;
+        width: 100%;
+    }
 
     .projectscontainer {
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: 20% 20% 20% 20%;
         column-gap: 2%;
-        padding-left: 0%;
-        padding-right: 0%;
+        padding-left: 2%;
+        padding-right: 2%;
     }
 
     .projectimg { 
@@ -441,16 +517,17 @@ p, h1, h2, #aboutdetails {
     .skillscontainer p {
         font-size: 15px;
     }
-
-    .overlay .text {
-        font-size: 11px;
+    
+    #pic img {
+        width: 70%;
+    }
+    
+    .text {
+        font-size: clamp(0.8rem, 0.9vw, 1.4rem);
     }
 }
 
 @media screen and (min-width:1200px) { 
-    .overlay .text {
-        font-size: 14px;
-    }
 
     li {
         font-size: 18px;
@@ -464,4 +541,19 @@ p, h1, h2, #aboutdetails {
     .skillscontainer p {
         font-size: 19px;
     }
+    
+    #pic img {
+        width: 75%;
+    }
+    
+    .projectimg { 
+        width: 100%;
+        height: 80%;
+    }
+
+    .overlay {
+        height: 80%;
+        width: 100%;
+    }
 }
+
